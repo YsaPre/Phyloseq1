@@ -1,0 +1,91 @@
+---
+title: "metabarcoding with dada2: environment installation"
+output: html_notebook
+---
+# update VM configuration
+``` {bash}
+sudo apt-get update -y 
+sudo apt-get install -y libbz2-dev
+sudo apt-get install -y liblzma-dev
+```
+
+
+/!\ installer le package suivant dasn une fenetre de terminal:
+sudo apt-get install libglpk-dev
+
+
+#package install
+Following instruction on https://benjjneb.github.io/dada2/dada-installation.html
+```{r package install}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install(version = '3.11')
+BiocManager::install("dada2", version = "3.11")
+BiocManager::install("phyloseq", version = "3.11")
+BiocManager::install("DECIPHER")
+BiocManager::install("phangorn")
+install.packages("gridExtra")
+
+```
+
+```{r}
+library(phyloseq)
+library(ggplot2)
+```
+```{r}
+install.packages("ggplot2")
+```
+
+```{r}
+
+```
+
+```{r}
+.cran_packages <- c( "shiny","miniUI", "caret", "pls", "e1071", "ggplot2", "randomForest", "dplyr", "ggrepel", "nlme", "devtools",
+                  "reshape2", "PMA", "structSSI", "ade4",
+                  "ggnetwork", "intergraph", "scales")
+.github_packages <- c("jfukuyama/phyloseqGraphTest")
+.bioc_packages <- c("genefilter", "impute")
+```
+
+
+```{r}
+install.packages(.cran_packages)
+devtools::install_github(.github_packages)
+BiocManager::install(.bioc_packages)
+```
+```{r}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("DESeq2")
+```
+```{r}
+install.packages(structSSI)
+```
+
+```{bash}
+wget https://cran.r-project.org/src/contrib/Archive/structSSI/structSSI_1.1.1.tar.gz
+```
+
+```{r}
+library(devtools)
+install_local("./structSSI_1.1.1.tar.gz")
+```
+
+```{r}
+install.packages("usethis")
+```
+
+```{r}
+library(usethis)
+use_git_config(user.name = "YsaPre", user.email = "Ysaline.Pretti@etudiant.univ-brest.fr")
+```
+
+```{r}
+install.packages("rmarkdown")
+```
+```{r}
+install.packages("knitr")
+```
+
